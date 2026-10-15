@@ -64,12 +64,47 @@ const situations = [
   },
 ]
 
+const realCases = [
+  {
+    id: 'equifax',
+    principle: 'confidencialidad',
+    year: '2017',
+    title: 'Equifax: datos personales expuestos',
+    summary:
+      'Una vulnerabilidad sin corregir permitió acceder a información de millones de personas, incluidos nombres, fechas de nacimiento y números de seguridad social.',
+    impact: 'La información privada quedó en manos no autorizadas.',
+    lesson: 'Actualizar sistemas y limitar los permisos reduce el alcance de una filtración.',
+  },
+  {
+    id: 'solarwinds',
+    principle: 'integridad',
+    year: '2020',
+    title: 'SolarWinds: software alterado',
+    summary:
+      'Atacantes comprometieron el proceso de distribución y agregaron código malicioso a una actualización legítima de Orion.',
+    impact: 'Los usuarios recibieron un software que ya no era íntegro ni confiable.',
+    lesson: 'Firmar, verificar y auditar el software ayuda a detectar cambios no autorizados.',
+  },
+  {
+    id: 'wannacry',
+    principle: 'disponibilidad',
+    year: '2017',
+    title: 'WannaCry: servicios interrumpidos',
+    summary:
+      'El ransomware afectó equipos del sistema sanitario británico (NHS), provocando cancelaciones y dificultades para acceder a servicios.',
+    impact: 'Sistemas y archivos necesarios dejaron de estar disponibles a tiempo.',
+    lesson: 'Las copias de seguridad, los parches y un plan de recuperación mantienen la operación.',
+  },
+]
+
 function App() {
   const [selectedId, setSelectedId] = useState('confidencialidad')
+  const [selectedCaseId, setSelectedCaseId] = useState('equifax')
   const [situationIndex, setSituationIndex] = useState(0)
   const [selectedAnswer, setSelectedAnswer] = useState(null)
 
   const selected = principles.find((principle) => principle.id === selectedId)
+  const selectedCase = realCases.find((incident) => incident.id === selectedCaseId)
   const situation = situations[situationIndex]
   const isCorrect = selectedAnswer === situation.answer
 
@@ -172,6 +207,66 @@ function App() {
             </div>
           </div>
         </article>
+      </section>
+
+      <section className="cases-section" id="casos">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">La teoría en el mundo real</p>
+            <h2>Cuando un principio falla, se nota.</h2>
+          </div>
+          <p className="section-note">Explora un caso por cada principio.</p>
+        </div>
+        <div className="case-layout">
+          <div className="case-list">
+            {realCases.map((incident) => {
+              const principle = principles.find((item) => item.id === incident.principle)
+              return (
+                <button
+                  className={`case-tab ${principle.color} ${
+                    selectedCaseId === incident.id ? 'active' : ''
+                  }`}
+                  key={incident.id}
+                  type="button"
+                  onClick={() => setSelectedCaseId(incident.id)}
+                  aria-pressed={selectedCaseId === incident.id}
+                >
+                  <span className="case-tab-letter">{principle.letter}</span>
+                  <span>
+                    <strong>{principle.name}</strong>
+                    <small>{incident.year} · {incident.title.split(':')[0]}</small>
+                  </span>
+                  <span className="case-tab-arrow">↗</span>
+                </button>
+              )
+            })}
+          </div>
+          <article className={`real-case ${principles.find((item) => item.id === selectedCase.principle).color}`}>
+            <div className="case-visual" aria-hidden="true">
+              <span className="case-visual-grid" />
+              <strong>{selectedCase.year}</strong>
+              <span>CASO REAL</span>
+            </div>
+            <div className="case-content">
+              <p className="eyebrow">Caso destacado</p>
+              <h3>{selectedCase.title}</h3>
+              <p>{selectedCase.summary}</p>
+              <div className="case-facts">
+                <div>
+                  <span className="example-label">QUÉ PASÓ</span>
+                  <strong>{selectedCase.impact}</strong>
+                </div>
+                <div>
+                  <span className="example-label">QUÉ APRENDEMOS</span>
+                  <strong>{selectedCase.lesson}</strong>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+        <p className="case-note">
+          Nota: los incidentes reales suelen afectar varios principios a la vez; aquí se destaca el objetivo de seguridad más visible en cada caso.
+        </p>
       </section>
 
       <section className="challenge-section">

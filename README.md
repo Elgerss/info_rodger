@@ -16,9 +16,14 @@ Visita la versión publicada:
   - **Integridad:** la información sigue siendo correcta y no ha sido alterada.
   - **Disponibilidad:** los datos y servicios están disponibles cuando se necesitan.
 - Panel de detalle con explicaciones técnicas, ejemplos prácticos y controles de seguridad relacionados.
+- Sección de casos reales para conectar la teoría con incidentes conocidos:
+  - **Equifax (2017):** exposición de datos personales, relacionada principalmente con la confidencialidad.
+  - **SolarWinds (2020):** alteración de una actualización de software, relacionada principalmente con la integridad.
+  - **WannaCry y el NHS (2017):** interrupción de servicios sanitarios, relacionada principalmente con la disponibilidad.
 - Reto interactivo para identificar qué principio está en riesgo en diferentes situaciones.
 - Diseño responsive para escritorio, tabletas y dispositivos móviles.
 - Navegación interna mediante enlaces y desplazamiento suave.
+- Composición visual creada con CSS, sin depender de imágenes externas.
 - Recarga en caliente (HMR) durante el desarrollo.
 
 ## Tecnologías
