@@ -391,7 +391,11 @@ h2 {
 .feedback span { color: var(--muted); }
 .feedback button { margin-left: auto; border: 0; background: none; color: var(--violet); font: 500 11px 'DM Mono', monospace; }
 
-footer { display: flex; justify-content: space-between; padding: 28px 0; color: var(--muted); font: 10px 'DM Mono', monospace; letter-spacing: 0.08em; text-transform: uppercase; }
+footer { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 28px 0; color: var(--muted); font: 10px 'DM Mono', monospace; letter-spacing: 0.08em; text-transform: uppercase; }
+.footer-meta { display: flex; align-items: center; gap: 20px; }
+.github-link { display: inline-flex; align-items: center; gap: 7px; color: var(--ink); text-decoration: none; transition: color 0.2s; }
+.github-link:hover { color: var(--violet); }
+.github-link svg { width: 17px; height: 17px; fill: currentColor; }
 
 @media (max-width: 760px) {
   .app-shell { padding: 0 22px; }
@@ -416,5 +420,6 @@ footer { display: flex; justify-content: space-between; padding: 28px 0; color: 
   .tools { grid-column: 1 / -1; padding: 22px 0 0; border-top: 1px solid var(--line); border-left: 0; }
   .challenge-section { padding: 65px 0; }
   .answer-list { grid-template-columns: 1fr; }
-  footer { flex-direction: column; gap: 10px; }
+  footer { align-items: flex-start; flex-direction: column; gap: 12px; }
+  .footer-meta { flex-wrap: wrap; gap: 12px 18px; }
 }
