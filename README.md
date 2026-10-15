@@ -1,13 +1,24 @@
 # info_rodger
 
-Aplicación web de presentación construida con React y Vite. Actualmente muestra una página personal con el mensaje “Hola soy Gerson”, una composición visual con los recursos de React y Vite, un contador interactivo y accesos a documentación y comunidades relacionadas.
+Infografía web interactiva sobre la tríada de seguridad de la información, también conocida como modelo CIA: **Confidencialidad, Integridad y Disponibilidad**. El proyecto explica conceptos técnicos de ciberseguridad con ejemplos cotidianos, una interfaz visual y actividades para que cualquier persona pueda explorar el tema.
+
+## Demo
+
+Visita la versión publicada:
+
+**[https://info-rodger.vercel.app/](https://info-rodger.vercel.app/)**
 
 ## Funcionalidades
 
-- Página de inicio responsive con soporte para temas claro y oscuro según la preferencia del sistema.
-- Contador interactivo implementado con el estado de React.
-- Sección de documentación con enlaces a Vite y React.
-- Enlaces a la comunidad de Vite (GitHub, Discord, X y Bluesky).
+- Diagrama visual de la tríada CIA.
+- Tarjetas interactivas para consultar cada principio:
+  - **Confidencialidad:** solo accede quien tiene permiso.
+  - **Integridad:** la información sigue siendo correcta y no ha sido alterada.
+  - **Disponibilidad:** los datos y servicios están disponibles cuando se necesitan.
+- Panel de detalle con explicaciones técnicas, ejemplos prácticos y controles de seguridad relacionados.
+- Reto interactivo para identificar qué principio está en riesgo en diferentes situaciones.
+- Diseño responsive para escritorio, tabletas y dispositivos móviles.
+- Navegación interna mediante enlaces y desplazamiento suave.
 - Recarga en caliente (HMR) durante el desarrollo.
 
 ## Tecnologías
@@ -15,7 +26,8 @@ Aplicación web de presentación construida con React y Vite. Actualmente muestr
 - [React](https://react.dev/) 19
 - [Vite](https://vite.dev/) 8
 - [Oxlint](https://oxc.rs/docs/guide/usage/linter.html) para análisis y linting
-- JavaScript y CSS
+- JavaScript (JSX) y CSS
+- [Vercel](https://vercel.com/) para el despliegue de la demo
 
 ## Requisitos
 
@@ -91,4 +103,6 @@ npm run lint
 
 ## Estado del proyecto
 
-El proyecto se encuentra en una fase inicial de presentación. La interfaz es completamente estática salvo por el contador interactivo y no requiere una base de datos, un servidor de API ni variables de entorno.
+El proyecto es una experiencia educativa frontend. El contenido se presenta de forma estática y las interacciones se gestionan en el navegador con el estado de React. No requiere una base de datos, un servidor de API ni variables de entorno.
+
+La aplicación está publicada y disponible en [info-rodger.vercel.app](https://info-rodger.vercel.app/).
